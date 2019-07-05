@@ -39,8 +39,10 @@ body {
   background: rgba(0, 0, 0, 0.6);
 }
 
+/*--- landing page text---*/
 .description {
   left: 50%;
+  padding: 0 30px;
   position: absolute;
   top: 45%;
   transform: translate(-50%, -55%);
@@ -54,6 +56,43 @@ body {
   font-size: 1.3rem;
   line-height: 1.5;
 }
+
+/*--- team page text ---*/
+
+
+.bio {
+  left: 50%;
+  position: absolute;
+  top: 20%;
+  transform: translate(-50%, -55%);
+  text-align: center;
+}
+.bio h1 {
+  color: #000000;
+}
+.bio p {
+  color: #000000;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+/*
+.bio {
+left: 50%;
+position: absolute;
+top: 20%;
+transform: translate(-50%, -55%);
+text-align: center;
+}
+
+.bio h1 {
+}
+
+.bio p {
+font-size: 1.2rem;
+}
+*/
+
 
 /*--- button ---*/
 .description button {
@@ -84,6 +123,23 @@ body {
   }
 
   .description p {
+    font-size: 1.2rem;
+  }
+
+  .bio {
+    left: 0;
+    padding: 0 30px;
+    position: absolute;
+    top: 20%;
+    transform: none;
+    text-align: center;
+  }
+
+  .bio h1 {
+    font-size: 2em;
+  }
+
+  .bio p {
     font-size: 1.2rem;
   }
 
