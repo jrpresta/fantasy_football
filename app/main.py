@@ -13,6 +13,16 @@ def jon_ross():
     return render_template('teams/jon_ross.html')
 
 
+@application.route('/home')
+def homepage():
+    return render_template('home.html')
+
+
+
+###############
+# TESTING PAGES
+###############
+
 @application.route('/testing')
 def testing():
     return render_template('base.html')
