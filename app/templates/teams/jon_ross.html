@@ -1,43 +1,80 @@
 <!DOCTYPE html>
 {% include 'base.html' %}
 
-<!--<html lang="en">-->
-    <!--<head>-->
-        <!--&lt;!&ndash;Requirements for Boostrap stuff&ndash;&gt;-->
-        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-        <!--<meta charset="UTF-8">-->
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-        <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">-->
-    <!--</head>-->
+<html lang="en">
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+<!--<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.bootstrapmin.css">-->
 
 
-<!--<div class="bio">-->
-    <!--<h1>Jon-Ross Presta</h1>-->
-    <!--<p>If you ain't last you're first.</p>-->
-    <!--&lt;!&ndash;<button class="btn btn-outline-secondary btn-lg">Let's Fucking Go!</button>&ndash;&gt;-->
-    <!--<div class="bio">-->
-        <!--<h1>Jon-Ross Presta</h1>-->
-        <!--<p>If you ain't last you're first.</p>-->
-    <!--</div>-->
+<head>
+    <!--Requirements for Boostrap stuff-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+</head>
+
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
 
 <body>
-    <div class="bio">
-        <!--<div class="bio">-->
-            <h1>Jon-Ross Presta</h1>
-            <p>If you ain't last you're first.</p>
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-            <div class="embed-responsive embed-responsive-16by9">
-
-                GET EMBEDDING LINK FOR YEAH BOI
-
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
-            </div>
+    <div class="container">
+        <h1>Puntin' Kickin' Lovin' Every Day</h1>
+        <h4>If you ain't last, you're first</h4>
+        <h4>Record: 7-9</h4>
+    </div>
 
 
-        <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--ROSTER-->
+    <div class="container pt-4">
+
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Player</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Team</th>
+                </tr>
+            </thead>
+            <!--TODO: Use flask/bootstrap to populate table with for loop-->
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Russel Wilson</td>
+                    <td>QB</td>
+                    <td>SEA</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Patrick Laird</td>
+                    <td>RB</td>
+                    <td>MIA</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Alvin Kamara</td>
+                    <td>RB</td>
+                    <td>NO</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Stefon Diggs</td>
+                    <td>WR</td>
+                    <td>BUF</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Jack Doyle</td>
+                    <td>TE</td>
+                    <td>IND</td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 </body>
 

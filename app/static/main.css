@@ -1,5 +1,5 @@
 body {
-  padding: 0;
+  padding-top: 100px;
   margin: 0;
   background: #F8F8FF;
 }
@@ -23,7 +23,7 @@ body {
 }
 
 /*--- background image ---*/
-.header {
+header {
   background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
@@ -192,9 +192,11 @@ font-size: 1.2rem;
 /*--- image grid ---*/
 /* Create four equal columns that sits next to each other */
 .column {
-  flex: 25%;
-  max-width: 5%;
-  padding: 0 4px;
+  position: absolute
+  flex: 1%;
+  top: 10px;
+  max-width: 25%;
+  padding: 0 50px;
 }
 
 .column img {
@@ -202,6 +204,7 @@ font-size: 1.2rem;
   vertical-align: middle;
   width: 100%;
 }
+
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
@@ -217,4 +220,72 @@ font-size: 1.2rem;
     flex: 100%;
     max-width: 100%;
   }
+}
+
+
+/* CSS for expanding boxes */
+.columnBox {
+  float: left;
+  width: 33.33%;
+  padding: 50px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.containerTab {
+  padding: 20px;
+  color: white;
+}
+
+/* Clear floats after the columns */
+.rowBox {
+  padding: 100px;
+  margin: 100px;
+}
+
+.rowBox:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Closable button inside the image */
+.closebtn {
+  float: right;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+
+.img-container {
+  margin: 1em 5em;
+}
+
+.img-container jumbotron{
+  padding: 0 2em
+}
+
+.base-container{
+  margin: 100px;
+  padding: 100px;
+}
+
+.img-container img {
+  display: block;
+  border-radius: 100%;
+  width: 10em;
+  height: 10em;
+  object-fit: fill;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-container a {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.5em 0 0.5em 0;
 }

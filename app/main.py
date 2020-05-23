@@ -18,6 +18,7 @@ def homepage():
     return render_template('home.html')
 
 
+# TODO: Maybe add login system
 # @application.route('/login')
 # def login():
 #     return render_template('login.html')
