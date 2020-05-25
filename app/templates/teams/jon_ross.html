@@ -38,40 +38,24 @@
                     <th scope="col">Player</th>
                     <th scope="col">Position</th>
                     <th scope="col">Team</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">College</th>
                 </tr>
             </thead>
             <!--TODO: Use flask/bootstrap to populate table with for loop-->
             <tbody>
+
+                {%for r in roster_rows%}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Russel Wilson</td>
-                    <td>QB</td>
-                    <td>SEA</td>
+                    <th scope="row">{{ loop.index0 + 1}}</th>
+                    <td>{{r.player}}</td>
+                    <td>{{r.position}}</td>
+                    <td>{{r.team}}</td>
+                    <td>{{r.age}}</td>
+                    <td>{{r.college}}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Patrick Laird</td>
-                    <td>RB</td>
-                    <td>MIA</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Alvin Kamara</td>
-                    <td>RB</td>
-                    <td>NO</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Stefon Diggs</td>
-                    <td>WR</td>
-                    <td>BUF</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Jack Doyle</td>
-                    <td>TE</td>
-                    <td>IND</td>
-                </tr>
+                {%endfor%}
+
             </tbody>
         </table>
 

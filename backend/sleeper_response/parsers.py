@@ -17,15 +17,17 @@ class OwnerExtraction:
 
 
 class PlayerExtraction:
-    def __init__(self, player_id, name, number, college, position):
+    def __init__(self, player_id, name, number, college, position, age, team):
         self.player_id = player_id
         self.name = name
         self.number = number
         self.college = college
         self.position = position
+        self.age = age
+        self.team = team
 
     def __repr__(self):
-        return f'Player: {self.name}\n'
+        return f'Player: {self.name}\nPosition: {self.position}\n'
 
 
 
@@ -58,8 +60,12 @@ for player_id in players:
                          name=player.get('full_name'),
                          number=player.get('number'),
                          college=player.get('college'),
-                         position=player.get('fantasy_position')
+                         position=player.get('fantasy_positions'),
+                         age=player.get('age'),
+                         team=player.get('team')
                         )
+
+    # print(player)
 
     player_extract[p.player_id] = p
 
@@ -85,6 +91,8 @@ players_     = []
 numbers_     = []
 colleges_    = []
 positions_   = []
+ages_        = []
+teams_       = []
 
 for o in owners:
     for p in o.player_ids:
@@ -98,8 +106,14 @@ for o in owners:
             players_.append(player.name)
             numbers_.append(player.number)
             colleges_.append(player.college)
-            positions_.append(player.position)
+            ages_.append(player.age)
+            teams_.append(player.team)
 
+            # print(player)
+
+            positions_.append(player.position[0])
+
+        # TODO: Fix position NaN issue
         except:
             owner_names_.append(id_owner_map[o.owner_id])
             owners_.append(o.owner_id)
@@ -107,6 +121,8 @@ for o in owners:
             numbers_.append("-")
             colleges_.append("-")
             positions_.append("DEF")
+            ages_.append("-")
+            teams_.append(p)
 
-df = pd.DataFrame({'owner_name': owner_names_, 'owner': owners_, 'player': players_, 'number': numbers_, 'college': colleges_, 'position': positions_})
+df = pd.DataFrame({'owner_name': owner_names_, 'owner': owners_, 'player': players_, 'number': numbers_, 'college': colleges_, 'position': positions_, 'age': ages_, 'team': teams_})
 df.to_csv('./sleeper_response/owners_and_rosters.csv', index=False)
