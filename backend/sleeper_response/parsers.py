@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 import pandas as pd
 
@@ -28,7 +30,7 @@ class PlayerExtraction:
 
 
 # FOR ROSTER, EXTRACT OWNER ID AND PLAYER IDS
-with open('./rosters.json', 'r') as f:
+with open('./sleeper_response/rosters.json', 'r') as f:
     rosters_json = f.read()
 
 
@@ -41,7 +43,7 @@ for roster in rosters:
 
 
 # FOR PLAYER, EXTRACT PLAYER ID, NAME, NUMBER, COLLEGE, POSITION, AGE
-with open('./players.json', 'r') as f:
+with open('./sleeper_response/players.json', 'r') as f:
     players_json = f.read()
 
 players = json.loads(players_json)
@@ -107,4 +109,4 @@ for o in owners:
             positions_.append("DEF")
 
 df = pd.DataFrame({'owner_name': owner_names_, 'owner': owners_, 'player': players_, 'number': numbers_, 'college': colleges_, 'position': positions_})
-df.to_csv('./owners_and_rosters.csv', index=False)
+df.to_csv('./sleeper_response/owners_and_rosters.csv', index=False)
