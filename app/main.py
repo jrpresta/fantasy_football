@@ -1,11 +1,11 @@
 from app import application
-from flask import render_template
+from flask import render_template, request
 
 import pandas as pd
 
 
 class RosterRow:
-    def __init__(self, owner_name, owner, player, number, college, position, age, team):
+    def __init__(self, owner_name, owner, player, number, college, position, age, team, trade_block):
         self.owner_name = owner_name
         self.owner = owner
         self.player = player
@@ -14,6 +14,7 @@ class RosterRow:
         self.position = position
         self.age = age
         self.team = team
+        self.trade_block = trade_block
 
 
 @application.route('/')
@@ -21,44 +22,61 @@ def index():
    return render_template('frontpage.html')
 
 
-@application.route('/teams/jon_ross')
+# def generic_team(user):
+#     @application.route('/teams/'+user, methods=['GET', 'POST'])
+#     def team_page():
+#         flip_trade_block()
+#         return render_template(f'teams/{user}', roster_rows=get_roster(user))
+
+
+@application.route('/teams/jon_ross', methods=['GET', 'POST'])
 def jon_ross():
+    flip_trade_block()
     return render_template('teams/jon_ross.html', roster_rows=get_roster('Jon-Ross'))
 
-@application.route('/teams/bill')
+@application.route('/teams/bill', methods=['GET', 'POST'])
 def bill():
+    flip_trade_block()
     return render_template('teams/bill.html', roster_rows=get_roster('Bill'))
 
-@application.route('/teams/alex')
+@application.route('/teams/alex', methods=['GET', 'POST'])
 def alex():
+    flip_trade_block()
     return render_template('teams/alex.html', roster_rows=get_roster('Alex'))
 
 @application.route('/teams/christian')
 def christian():
+    flip_trade_block()
     return render_template('teams/christian.html', roster_rows=get_roster('Christian'))
 
 @application.route('/teams/clayton')
 def clayton():
+    flip_trade_block()
     return render_template('teams/clayton.html', roster_rows=get_roster('Clayton'))
 
 @application.route('/teams/jacob')
 def jacob():
+    flip_trade_block()
     return render_template('teams/jacob.html', roster_rows=get_roster('Jacob'))
 
 @application.route('/teams/james')
 def james():
+    flip_trade_block()
     return render_template('teams/james.html', roster_rows=get_roster('James'))
 
 @application.route('/teams/jarod')
 def jarod():
+    flip_trade_block()
     return render_template('teams/jarod.html', roster_rows=get_roster('Jarod'))
 
 @application.route('/teams/sam')
 def sam():
+    flip_trade_block()
     return render_template('teams/sam.html', roster_rows=get_roster('Sam'))
 
 @application.route('/teams/tyler')
 def tyler():
+    flip_trade_block()
     return render_template('teams/tyler.html', roster_rows=get_roster('Tyler'))
 
 
@@ -105,6 +123,18 @@ def get_roster(user_str):
     roster_rows = []
 
     for row in df.itertuples():
-        roster_rows.append(RosterRow(row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8]))
+        roster_rows.append(RosterRow(row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
 
     return roster_rows
+
+
+# TODO: Maintain separate csv with trade block info so it doesn't get reset after every data refresh
+# TODO: Probably join this info with the incoming data initially
+def flip_trade_block():
+    df = pd.read_csv('./backend/sleeper_response/owners_and_rosters.csv')
+    player = request.form.get('the_checkbox')
+
+    if player:
+        current_val = df[df['player'] == player]['trade_block']
+        df.loc[df['player'] == player, 'trade_block'] = bool(1 - int(current_val))
+        df.to_csv('./backend/sleeper_response/owners_and_rosters.csv', index=False)

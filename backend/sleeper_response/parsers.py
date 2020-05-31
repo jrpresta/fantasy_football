@@ -108,6 +108,7 @@ for o in owners:
             ages_.append(player.age)
             teams_.append(player.team)
 
+
             # print(player)
 
             positions_.append(player.position[0])
@@ -123,5 +124,13 @@ for o in owners:
             ages_.append("-")
             teams_.append(p)
 
-df = pd.DataFrame({'owner_name': owner_names_, 'owner': owners_, 'player': players_, 'number': numbers_, 'college': colleges_, 'position': positions_, 'age': ages_, 'team': teams_})
+df = pd.DataFrame({'owner_name': owner_names_,
+                   'owner': owners_,
+                   'player': players_,
+                   'number': numbers_,
+                   'college': colleges_,
+                   'position': positions_,
+                   'age': ages_,
+                   'team': teams_,
+                   'trade_block': [False]*len(owner_names_)})
 df.to_csv('./sleeper_response/owners_and_rosters.csv', index=False)

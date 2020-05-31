@@ -11,21 +11,34 @@
                     <th scope="col">Team</th>
                     <th scope="col">Age</th>
                     <th scope="col">College</th>
+                    <th scope="col">Trade Block</th>
                 </tr>
             </thead>
 
             <tbody>
 
-                {%for r in roster_rows%}
-                <tr>
+                <form method="POST">
+                    <input type="submit">
+
+
+                    {%for r in roster_rows%}
+                    <tr>
                     <th scope="row">{{ loop.index0 + 1}}</th>
-                    <td>{{r.player}}</td>
-                    <td>{{r.position}}</td>
-                    <td>{{r.team}}</td>
-                    <td>{{r.age}}</td>
-                    <td>{{r.college}}</td>
-                </tr>
+                        <td>{{r.player}}</td>
+                        <td>{{r.position}}</td>
+                        <td>{{r.team}}</td>
+                        <td>{{r.age}}</td>
+                        <td>{{r.college}}</td>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                            <input type="radio" value="{{r.player}}" name="the_checkbox" style="center"> {{r.trade_block}}
+                                <!--<input type="checkbox" class="custom-control-input" id="customCheck{{r.player}}">-->
+                                <!--<label class="custom-control-label" for="customCheck{{r.player}}">Check this custom checkbox</label>-->
+                            </div>
+                        </td>
+                    </tr>
                 {%endfor%}
+                </form>
 
             </tbody>
         </table>
