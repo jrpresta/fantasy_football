@@ -44,37 +44,37 @@ def alex():
     flip_trade_block()
     return render_template('teams/alex.html', roster_rows=get_roster('Alex'))
 
-@application.route('/teams/christian')
+@application.route('/teams/christian', methods=['GET', 'POST'])
 def christian():
     flip_trade_block()
     return render_template('teams/christian.html', roster_rows=get_roster('Christian'))
 
-@application.route('/teams/clayton')
+@application.route('/teams/clayton', methods=['GET', 'POST'])
 def clayton():
     flip_trade_block()
     return render_template('teams/clayton.html', roster_rows=get_roster('Clayton'))
 
-@application.route('/teams/jacob')
+@application.route('/teams/jacob', methods=['GET', 'POST'])
 def jacob():
     flip_trade_block()
     return render_template('teams/jacob.html', roster_rows=get_roster('Jacob'))
 
-@application.route('/teams/james')
+@application.route('/teams/james', methods=['GET', 'POST'])
 def james():
     flip_trade_block()
     return render_template('teams/james.html', roster_rows=get_roster('James'))
 
-@application.route('/teams/jarod')
+@application.route('/teams/jarod', methods=['GET', 'POST'])
 def jarod():
     flip_trade_block()
     return render_template('teams/jarod.html', roster_rows=get_roster('Jarod'))
 
-@application.route('/teams/sam')
+@application.route('/teams/sam', methods=['GET', 'POST'])
 def sam():
     flip_trade_block()
     return render_template('teams/sam.html', roster_rows=get_roster('Sam'))
 
-@application.route('/teams/tyler')
+@application.route('/teams/tyler', methods=['GET', 'POST'])
 def tyler():
     flip_trade_block()
     return render_template('teams/tyler.html', roster_rows=get_roster('Tyler'))
