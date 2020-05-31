@@ -22,62 +22,11 @@ def index():
    return render_template('frontpage.html')
 
 
-# def generic_team(user):
-#     @application.route('/teams/'+user, methods=['GET', 'POST'])
-#     def team_page():
-#         flip_trade_block()
-#         return render_template(f'teams/{user}', roster_rows=get_roster(user))
-
-
-@application.route('/teams/jon_ross', methods=['GET', 'POST'])
-def jon_ross():
+@application.route('/teams/<owner_name>', methods=['GET', 'POST'])
+def team(owner_name):
     flip_trade_block()
-    return render_template('teams/jon_ross.html', roster_rows=get_roster('Jon-Ross'))
-
-@application.route('/teams/bill', methods=['GET', 'POST'])
-def bill():
-    flip_trade_block()
-    return render_template('teams/bill.html', roster_rows=get_roster('Bill'))
-
-@application.route('/teams/alex', methods=['GET', 'POST'])
-def alex():
-    flip_trade_block()
-    return render_template('teams/alex.html', roster_rows=get_roster('Alex'))
-
-@application.route('/teams/christian', methods=['GET', 'POST'])
-def christian():
-    flip_trade_block()
-    return render_template('teams/christian.html', roster_rows=get_roster('Christian'))
-
-@application.route('/teams/clayton', methods=['GET', 'POST'])
-def clayton():
-    flip_trade_block()
-    return render_template('teams/clayton.html', roster_rows=get_roster('Clayton'))
-
-@application.route('/teams/jacob', methods=['GET', 'POST'])
-def jacob():
-    flip_trade_block()
-    return render_template('teams/jacob.html', roster_rows=get_roster('Jacob'))
-
-@application.route('/teams/james', methods=['GET', 'POST'])
-def james():
-    flip_trade_block()
-    return render_template('teams/james.html', roster_rows=get_roster('James'))
-
-@application.route('/teams/jarod', methods=['GET', 'POST'])
-def jarod():
-    flip_trade_block()
-    return render_template('teams/jarod.html', roster_rows=get_roster('Jarod'))
-
-@application.route('/teams/sam', methods=['GET', 'POST'])
-def sam():
-    flip_trade_block()
-    return render_template('teams/sam.html', roster_rows=get_roster('Sam'))
-
-@application.route('/teams/tyler', methods=['GET', 'POST'])
-def tyler():
-    flip_trade_block()
-    return render_template('teams/tyler.html', roster_rows=get_roster('Tyler'))
+    # TODO: Sort rosters by position, team, player, etc.
+    return render_template(f'teams/{owner_name}.html', roster_rows=get_roster(owner_name))
 
 
 
