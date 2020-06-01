@@ -29,10 +29,15 @@ def team(owner_name):
     return render_template(f'teams/{owner_name}.html', roster_rows=get_roster(owner_name))
 
 
-
 @application.route('/home')
 def homepage():
     return render_template('home.html')
+
+
+@application.route('/trade_block')
+def trade_block():
+    rosters = get_all_rosters()
+    return render_template('trade_block.html', rosters=rosters)
 
 
 # TODO: Maybe add login system
@@ -65,9 +70,12 @@ def testing3():
 
 # TODO: MOVE LATER
 
-def get_roster(user_str):
+def get_roster(user_str, filter_for_trade_block=False):
     df = pd.read_csv('./backend/sleeper_response/owners_and_rosters.csv')
     df = df[df['owner_name'] == user_str]
+
+    if filter_for_trade_block:
+        df = df[df['trade_block']]
 
     roster_rows = []
 
@@ -87,3 +95,20 @@ def flip_trade_block():
         current_val = df[df['player'] == player]['trade_block']
         df.loc[df['player'] == player, 'trade_block'] = bool(1 - int(current_val))
         df.to_csv('./backend/sleeper_response/owners_and_rosters.csv', index=False)
+
+
+def get_trade_block(user):
+    df = pd.read_csv('./backend/sleeper_response/owners_and_rosters.csv')
+    df = df[df['owner_name'] == user]
+
+    roster_rows = []
+
+    for row in df.itertuples():
+        roster_rows.append(RosterRow(row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
+
+    return roster_rows
+
+
+def get_all_rosters():
+    users = 'alex bill christian clayton jacob james jarod jon_ross sam tyler'.split()
+    return {u: (get_roster(u, filter_for_trade_block=True)) for u in users}
